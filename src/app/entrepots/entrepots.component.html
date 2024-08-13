@@ -1,0 +1,28 @@
+<div>
+  <h1>Entrepots</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Location</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let entrepot of entrepots">
+        <td>{{ entrepot.id }}</td>
+        <td>{{ entrepot.nom }}</td>
+        <td>{{ entrepot.location }}</td>
+        <td>
+          <button (click)="editEntrepot(entrepot.id)" class="btn btn-edit">Edit</button>
+          <button (click)="deleteEntrepot(entrepot.id)" class="btn btn-danger">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <a routerLink="/entrepots/new" class="btn btn-create">Create New Entrepot</a>
+  <button (click)="navigateBack()" class="back-button">Précédent</button>
+
+
+</div>

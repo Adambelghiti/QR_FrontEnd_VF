@@ -1,0 +1,20 @@
+<div class="container" *ngIf="article">
+  <h1>Article Details</h1>
+  <div class="details">
+    <p><strong>Serial Number:</strong> {{ article.serialNumber || 'N/A' }}</p>
+    <p><strong>Name:</strong> {{ article.nom || 'N/A' }}</p>
+    <p><strong>Length:</strong> {{ article.longueur || 'N/A' }}</p>
+    <p><strong>Width:</strong> {{ article.largeur || 'N/A' }}</p>
+    <p><strong>Height:</strong> {{ article.hauteur || 'N/A' }}</p>
+    <p><strong>Category:</strong> {{ article.categorie || 'N/A' }}</p>
+    <p><strong>Warehouse:</strong> {{ article.entrepot?.nom || 'N/A' }}</p>
+    <p><strong>Manufacturer:</strong> {{ article.fabricant?.name || 'N/A' }}</p>
+    <p><strong>Supplier:</strong> {{ article.fournisseur?.name || 'N/A' }}</p>
+  </div>
+  <div class="qr-code">
+    <img *ngIf="article.codeQr" [src]="'data:image/png;base64,' + article.codeQr" alt="QR Code" />
+  </div>
+  <button (click)="downloadQr()" class="btn btn-download">Download QR Code</button>
+  <a [routerLink]="['/articles']" class="btn btn-back">Go Back</a>
+  <a [routerLink]="['/articles/edit', article.serialNumber]" class="btn btn-primary">Edit</a>
+</div>

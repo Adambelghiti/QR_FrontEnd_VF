@@ -1,0 +1,60 @@
+/* Reuse the same styles as articles.component.css */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  text-decoration: none;
+  color: white;
+}
+
+.btn-edit {
+  background-color: #2196F3;
+}
+
+.btn-create {
+  background-color: #4CAF50;
+}
+.back-button {
+  background-color: #777;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.back-button:hover {
+  background-color: #555;
+}

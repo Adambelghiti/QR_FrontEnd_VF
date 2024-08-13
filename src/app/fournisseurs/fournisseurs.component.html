@@ -1,0 +1,25 @@
+<div>
+  <h1>Fournisseurs</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let fournisseur of fournisseurs">
+        <td>{{ fournisseur.id }}</td>
+        <td>{{ fournisseur.name }}</td>
+        <td>
+          <button (click)="editFournisseur(fournisseur.id)" class="btn btn-edit">Edit</button>
+          <button (click)="deleteFournisseur(fournisseur.id)" class="btn btn-danger">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <a routerLink="/fournisseurs/new" class="btn btn-create">Create New Fournisseur</a>
+  <button (click)="navigateBack()" class="back-button">Précédent</button>
+
+</div>

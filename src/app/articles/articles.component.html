@@ -1,0 +1,47 @@
+<div class="container">
+  <h1>QR Code Article App</h1>
+  <h2>Articles</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Serial Number</th>
+        <th>Nom</th>
+        <th>Length</th>
+        <th>Width</th>
+        <th>Height</th>
+        <th>Category</th>
+        <th>Warehouse</th>
+        <th>Manufacturer</th>
+        <th>Supplier</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let article of articles">
+        <td>{{ article.serialNumber }}</td>
+        <td>{{ article.nom }}</td>
+        <td>{{ article.longueur }}</td>
+        <td>{{ article.largeur }}</td>
+        <td>{{ article.hauteur }}</td>
+        <td>{{ article.categorie }}</td>
+        <td>{{ article.entrepot?.nom || 'No Entrepot' }}</td>
+        <td>{{ article.fabricant?.name || 'No fabricant' }}</td>
+        <td>{{ article.fournisseur?.name || 'No fournisseur' }}</td>
+        <td>
+          <button (click)="viewArticle(article.serialNumber)" class="btn btn-primary">View</button>
+          <button (click)="editArticle(article.serialNumber)" class="btn btn-primary">Edit</button>
+          <button (click)="deleteArticle(article.serialNumber)" class="btn btn-danger">Delete</button>
+          <button (click)="downloadQr(article.serialNumber)" class="btn btn-download">Download QR</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Create New Article</h2>
+  <a routerLink="/articles/new" class="btn btn-primary">Créer un nouveau Article</a>
+
+  <h2>Upload QR Code</h2>
+  <a routerLink="/articles/upload" class="btn btn-upload">Upload QR Code</a>
+
+  <a routerLink="/welcome" class="btn back-button">Précédent</a>
+</div>

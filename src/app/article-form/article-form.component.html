@@ -1,0 +1,40 @@
+<div class="container">
+  <h1>{{ articleId ? 'Edit Article' : 'Create New Article' }}</h1>
+  <form [formGroup]="articleForm" (ngSubmit)="onSubmit()">
+    <input type="hidden" formControlName="serialNumber" />
+
+    <label for="nom">Name:</label>
+    <input type="text" id="nom" formControlName="nom" required />
+
+    <label for="longueur">Length:</label>
+    <input type="text" id="longueur" formControlName="longueur" required />
+
+    <label for="largeur">Width:</label>
+    <input type="text" id="largeur" formControlName="largeur" required />
+
+    <label for="hauteur">Height:</label>
+    <input type="text" id="hauteur" formControlName="hauteur" required />
+
+    <label for="categorie">Category:</label>
+    <input type="text" id="categorie" formControlName="categorie" required />
+
+    <label>Warehouse:</label>
+    <select formControlName="entrepot">
+      <option *ngFor="let entrepot of entrepots" [ngValue]="entrepot">{{ entrepot.nom }}</option>
+    </select>
+
+    <label>Manufacturer:</label>
+    <select formControlName="fabricant">
+      <option *ngFor="let fabricant of fabricants" [ngValue]="fabricant">{{ fabricant.name }}</option>
+    </select>
+
+    <label>Supplier:</label>
+    <select formControlName="fournisseur">
+      <option *ngFor="let fournisseur of fournisseurs" [ngValue]="fournisseur">{{ fournisseur.name }}</option>
+    </select>
+
+
+    <button type="submit">{{ articleId ? 'Update' : 'Save' }}</button>
+    <a routerLink="/articles" class="btn btn-secondary">Précédent</a>
+  </form>
+</div>

@@ -1,0 +1,58 @@
+/* Container Styles */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  background: #f4f4f4; /* Light gray background */
+  padding: 20px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #333; /* Dark gray for the heading */
+}
+
+/* Button Styles */
+button {
+  display: inline-block;
+  padding: 15px 25px;
+  margin: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+/* Specific Button Styles */
+button:nth-of-type(1) {
+  background-color: #4CAF50; /* Green */
+}
+
+button:nth-of-type(2) {
+  background-color: #2196F3; /* Blue */
+}
+
+button:nth-of-type(3) {
+  background-color: #FF9800; /* Orange */
+}
+
+button:nth-of-type(4) {
+  background-color: #9C27B0; /* Purple */
+}
+
+/* Hover and Active States */
+button:hover {
+  opacity: 0.9;
+}
+
+button:active {
+  transform: scale(0.98);
+}

@@ -1,0 +1,12 @@
+<div class="form-container">
+  <h1>{{ fabricantForm.get('id')?.value == null ? 'Create New Fabricant' : 'Edit Fabricant' }}</h1>
+  <form [formGroup]="fabricantForm" (ngSubmit)="onSubmit()">
+    <input type="hidden" formControlName="id" />
+
+    <label for="name">Name:</label>
+    <input type="text" id="name" formControlName="name" required/>
+
+    <button type="submit">Save</button>
+  </form>
+  <a routerLink="/fabricants" class="back-button">Précédent</a>
+</div>

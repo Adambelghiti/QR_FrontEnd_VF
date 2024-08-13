@@ -1,0 +1,24 @@
+<div>
+  <h1>Fabricants</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let fabricant of fabricants">
+        <td>{{ fabricant.id }}</td>
+        <td>{{ fabricant.name }}</td>
+        <td>
+          <button (click)="editFabricant(fabricant.id)" class="btn btn-edit">Edit</button>
+          <button (click)="deleteFabricant(fabricant.id)" class="btn btn-danger">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <a routerLink="/fabricants/new" class="btn btn-create">Create New Fabricant</a>
+  <a routerLink="/welcome" class="btn back-button">Précédent</a>
+</div>
