@@ -1,11 +1,11 @@
 <div>
-  <h1>Entrepots</h1>
-  <table>
+  <h1>Entrepôts</h1>
+  <nz-table #basicTable [nzData]="entrepots" nzBordered>
     <thead>
       <tr>
         <th>ID</th>
-        <th>Name</th>
-        <th>Location</th>
+        <th>Nom</th>
+        <th>Lieu</th>
         <th>Actions</th>
       </tr>
     </thead>
@@ -15,14 +15,12 @@
         <td>{{ entrepot.nom }}</td>
         <td>{{ entrepot.location }}</td>
         <td>
-          <button (click)="editEntrepot(entrepot.id)" class="btn btn-edit">Edit</button>
-          <button (click)="deleteEntrepot(entrepot.id)" class="btn btn-danger">Delete</button>
+          <button nz-button nzType="default" class="btn-edit" (click)="editEntrepot(entrepot.id)">Modifier</button>
+          <button nz-button nzType="primary" nzDanger (click)="deleteEntrepot(entrepot.id)">Supprimer</button>
         </td>
       </tr>
     </tbody>
-  </table>
-  <a routerLink="/entrepots/new" class="btn btn-create">Create New Entrepot</a>
-  <button (click)="navigateBack()" class="back-button">Précédent</button>
-
-
+  </nz-table>
+  <button nz-button nzType="primary" routerLink="/entrepots/new">Créer un nouvel entrepôt</button>
+  <button nz-button nzType="default" (click)="navigateBack()">Précédent</button>
 </div>

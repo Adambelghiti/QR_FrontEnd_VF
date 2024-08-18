@@ -1,9 +1,17 @@
-<div class="container">
+<div class="container" style="text-align: center; margin-top: 50px;">
   <h1>Welcome to QR Code Article Management</h1>
-  <div class="button-container">
-    <button (click)="navigateTo('/articles')">Gestion des Articles</button>
-    <button (click)="navigateTo('/fabricants')">Gestion des Fabricants</button>
-    <button (click)="navigateTo('/fournisseurs')">Gestion des Fournisseurs</button>
-    <button (click)="navigateTo('/entrepots')">Gestion des Entrepots</button>
+  <div class="button-container" style="margin-top: 30px;">
+    <button nz-button nzType="primary" nzSize="large" (click)="navigateTo('/articles')" style="margin: 10px;">
+      Gestion des Articles
+    </button>
+    <button nz-button nzType="primary" nzSize="large" (click)="navigateTo('/fabricants')" style="margin: 10px;">
+      Gestion des Fabricants
+    </button>
+    <button nz-button nzType="primary" nzSize="large" (click)="navigateTo('/fournisseurs')" style="margin: 10px;">
+      Gestion des Fournisseurs
+    </button>
+    <button nz-button nzType="primary" nzSize="large" (click)="navigateTo('/entrepots')" style="margin: 10px;">
+      Gestion des Entrepots
+    </button>
   </div>
 </div>

@@ -6,13 +6,16 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { EntrepotService } from '../entrepots/entrepot.service';
 import { Entrepot } from '../entrepots/entrepot';
+import { NzTableModule } from 'ng-zorro-antd/table';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzIconModule } from 'ng-zorro-antd/icon';
 
 @Component({
   selector: 'app-entrepot-form',
   templateUrl: './entrepot-form.component.html',
   styleUrls: ['./entrepot-form.component.css'],
   standalone: true,
-  imports: [HttpClientModule, RouterModule, CommonModule, ReactiveFormsModule],
+  imports: [HttpClientModule, RouterModule, CommonModule, ReactiveFormsModule,NzTableModule,NzButtonModule,NzIconModule],
   providers: [EntrepotService]
 })
 export class EntrepotFormComponent implements OnInit {

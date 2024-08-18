@@ -1,40 +1,54 @@
 <div class="container">
-  <h1>{{ articleId ? 'Edit Article' : 'Create New Article' }}</h1>
+  <h1>{{ articleId ? 'Modifier l\'Article' : 'Créer un nouvel Article' }}</h1>
   <form [formGroup]="articleForm" (ngSubmit)="onSubmit()">
     <input type="hidden" formControlName="serialNumber" />
 
-    <label for="nom">Name:</label>
-    <input type="text" id="nom" formControlName="nom" required />
+    <div class="form-group">
+      <label for="nom">Nom:</label>
+      <input nz-input type="text" id="nom" formControlName="nom" required />
+      <input type="checkbox" formControlName="includeNom" /> Inclure dans QR
+    </div>
 
-    <label for="longueur">Length:</label>
-    <input type="text" id="longueur" formControlName="longueur" required />
+    <div class="form-group">
+      <label for="longueur">Longueur:</label>
+      <input nz-input type="text" id="longueur" formControlName="longueur" required />
+      <input type="checkbox" formControlName="includeLongueur" /> Inclure dans QR
+    </div>
 
-    <label for="largeur">Width:</label>
-    <input type="text" id="largeur" formControlName="largeur" required />
+    <div class="form-group">
+      <label for="largeur">Largeur:</label>
+      <input nz-input type="text" id="largeur" formControlName="largeur" required />
+      <input type="checkbox" formControlName="includeLargeur" /> Inclure dans QR
+    </div>
 
-    <label for="hauteur">Height:</label>
-    <input type="text" id="hauteur" formControlName="hauteur" required />
+    <div class="form-group">
+      <label for="hauteur">Hauteur:</label>
+      <input nz-input type="text" id="hauteur" formControlName="hauteur" required />
+      <input type="checkbox" formControlName="includeHauteur" /> Inclure dans QR
+    </div>
 
-    <label for="categorie">Category:</label>
-    <input type="text" id="categorie" formControlName="categorie" required />
+    <div class="form-group">
+      <label for="categorie">Catégorie:</label>
+      <input nz-input type="text" id="categorie" formControlName="categorie" required />
+      <input type="checkbox" formControlName="includeCategorie" /> Inclure dans QR
+    </div>
 
-    <label>Warehouse:</label>
-    <select formControlName="entrepot">
-      <option *ngFor="let entrepot of entrepots" [ngValue]="entrepot">{{ entrepot.nom }}</option>
-    </select>
+    <label>Entrepôt:</label>
+    <nz-select formControlName="entrepot">
+      <nz-option *ngFor="let entrepot of entrepots" [nzValue]="entrepot" [nzLabel]="entrepot.nom"></nz-option>
+    </nz-select>
 
-    <label>Manufacturer:</label>
-    <select formControlName="fabricant">
-      <option *ngFor="let fabricant of fabricants" [ngValue]="fabricant">{{ fabricant.name }}</option>
-    </select>
+    <label>Fabricant:</label>
+    <nz-select formControlName="fabricant">
+      <nz-option *ngFor="let fabricant of fabricants" [nzValue]="fabricant" [nzLabel]="fabricant.name"></nz-option>
+    </nz-select>
 
-    <label>Supplier:</label>
-    <select formControlName="fournisseur">
-      <option *ngFor="let fournisseur of fournisseurs" [ngValue]="fournisseur">{{ fournisseur.name }}</option>
-    </select>
+    <label>Fournisseur:</label>
+    <nz-select formControlName="fournisseur">
+      <nz-option *ngFor="let fournisseur of fournisseurs" [nzValue]="fournisseur" [nzLabel]="fournisseur.name"></nz-option>
+    </nz-select>
 
-
-    <button type="submit">{{ articleId ? 'Update' : 'Save' }}</button>
-    <a routerLink="/articles" class="btn btn-secondary">Précédent</a>
+    <button nz-button nzType="primary" type="submit">{{ articleId ? 'Mettre à jour' : 'Enregistrer' }}</button>
+    <button nz-button nzType="default" routerLink="/articles" class="back-button">Précédent</button>
   </form>
 </div>

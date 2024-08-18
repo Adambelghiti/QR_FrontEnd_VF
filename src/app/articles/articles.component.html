@@ -1,18 +1,18 @@
 <div class="container">
-  <h1>QR Code Article App</h1>
+  <h1>Application de Gestion des Articles avec QR Code</h1>
   <h2>Articles</h2>
-  <table>
+  <nz-table #basicTable [nzData]="articles" nzBordered>
     <thead>
       <tr>
-        <th>Serial Number</th>
+        <th>Numéro de série</th>
         <th>Nom</th>
-        <th>Length</th>
-        <th>Width</th>
-        <th>Height</th>
-        <th>Category</th>
-        <th>Warehouse</th>
-        <th>Manufacturer</th>
-        <th>Supplier</th>
+        <th>Longueur</th>
+        <th>Largeur</th>
+        <th>Hauteur</th>
+        <th>Catégorie</th>
+        <th>Entrepôt</th>
+        <th>Fabricant</th>
+        <th>Fournisseur</th>
         <th>Actions</th>
       </tr>
     </thead>
@@ -24,24 +24,24 @@
         <td>{{ article.largeur }}</td>
         <td>{{ article.hauteur }}</td>
         <td>{{ article.categorie }}</td>
-        <td>{{ article.entrepot?.nom || 'No Entrepot' }}</td>
-        <td>{{ article.fabricant?.name || 'No fabricant' }}</td>
-        <td>{{ article.fournisseur?.name || 'No fournisseur' }}</td>
+        <td>{{ article.entrepot?.nom || 'Aucun Entrepôt' }}</td>
+        <td>{{ article.fabricant?.name || 'Aucun Fabricant' }}</td>
+        <td>{{ article.fournisseur?.name || 'Aucun Fournisseur' }}</td>
         <td>
-          <button (click)="viewArticle(article.serialNumber)" class="btn btn-primary">View</button>
-          <button (click)="editArticle(article.serialNumber)" class="btn btn-primary">Edit</button>
-          <button (click)="deleteArticle(article.serialNumber)" class="btn btn-danger">Delete</button>
-          <button (click)="downloadQr(article.serialNumber)" class="btn btn-download">Download QR</button>
+          <button nz-button nzType="default" class="btn-affiche" (click)="viewArticle(article.serialNumber)">Voir</button>
+          <button nz-button nzType="default" class="btn-edit" (click)="editArticle(article.serialNumber)">Modifier</button>
+          <button nz-button nzType="primary" nzDanger (click)="deleteArticle(article.serialNumber)">Supprimer</button>
+          <button nz-button nzType="primary" (click)="downloadQr(article.serialNumber)">Télécharger le QR</button>
         </td>
       </tr>
     </tbody>
-  </table>
+  </nz-table>
 
-  <h2>Create New Article</h2>
-  <a routerLink="/articles/new" class="btn btn-primary">Créer un nouveau Article</a>
+  <h2>Créer un nouvel Article</h2>
+  <button nz-button nzType="primary" routerLink="/articles/new">Créer un nouvel Article</button>
 
-  <h2>Upload QR Code</h2>
-  <a routerLink="/articles/upload" class="btn btn-upload">Upload QR Code</a>
+  <h2>Télécharger le Code QR</h2>
+  <button nz-button nzType="primary" routerLink="/articles/upload">Télécharger le Code QR</button>
 
-  <a routerLink="/welcome" class="btn back-button">Précédent</a>
+  <button nz-button nzType="default" routerLink="/welcome">Précédent</button>
 </div>

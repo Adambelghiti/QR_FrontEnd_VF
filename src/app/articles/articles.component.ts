@@ -4,13 +4,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { NzTableModule } from 'ng-zorro-antd/table';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzIconModule } from 'ng-zorro-antd/icon';
 
 @Component({
   selector: 'app-articles',
   templateUrl: './articles.component.html',
   styleUrls: ['./articles.component.css'],
   standalone: true,
-  imports: [HttpClientModule, RouterModule, CommonModule],
+  imports: [HttpClientModule, RouterModule, CommonModule,NzTableModule,NzButtonModule,NzIconModule],
   providers: [ArticleService]
 })
 export class ArticlesComponent {
@@ -42,7 +45,9 @@ export class ArticlesComponent {
       this.articles = this.articles.filter(article => article.serialNumber !== serialNumber);
     });
   }
-
+  navigateBack(): void {
+    this.router.navigate(['/welcome']);
+  }
   downloadQr(serialNumber: number): void {
     this.articleService.getQrCode(serialNumber).subscribe(blob => {
       const url = window.URL.createObjectURL(blob);

@@ -7,13 +7,16 @@ import { CommonModule } from '@angular/common';
 import { Observable } from 'rxjs';
 import { FabricantService } from '../fabricants/fabricant.service';
 import { Fabricant } from '../fabricants/fabricant';
+import { NzTableModule } from 'ng-zorro-antd/table';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzIconModule } from 'ng-zorro-antd/icon';
 
 @Component({
   selector: 'app-fabricant-form',
   templateUrl: './fabricant-form.component.html',
   styleUrls: ['./fabricant-form.component.css'],
   standalone: true,
-  imports: [HttpClientModule, RouterModule, CommonModule, ReactiveFormsModule],
+  imports: [HttpClientModule, RouterModule, CommonModule, ReactiveFormsModule,NzTableModule,NzButtonModule,NzIconModule],
   providers: [FabricantService]
 })
 export class FabricantFormComponent implements OnInit {

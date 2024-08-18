@@ -1,20 +1,20 @@
 <div class="container" *ngIf="article">
-  <h1>Article Details</h1>
+  <h1>Détails de l'Article</h1>
   <div class="details">
-    <p><strong>Serial Number:</strong> {{ article.serialNumber || 'N/A' }}</p>
-    <p><strong>Name:</strong> {{ article.nom || 'N/A' }}</p>
-    <p><strong>Length:</strong> {{ article.longueur || 'N/A' }}</p>
-    <p><strong>Width:</strong> {{ article.largeur || 'N/A' }}</p>
-    <p><strong>Height:</strong> {{ article.hauteur || 'N/A' }}</p>
-    <p><strong>Category:</strong> {{ article.categorie || 'N/A' }}</p>
-    <p><strong>Warehouse:</strong> {{ article.entrepot?.nom || 'N/A' }}</p>
-    <p><strong>Manufacturer:</strong> {{ article.fabricant?.name || 'N/A' }}</p>
-    <p><strong>Supplier:</strong> {{ article.fournisseur?.name || 'N/A' }}</p>
+    <p><strong>Numéro de série:</strong> {{ article.serialNumber || 'N/A' }}</p>
+    <p><strong>Nom:</strong> {{ article.nom || 'N/A' }}</p>
+    <p><strong>Longueur:</strong> {{ article.longueur || 'N/A' }}</p>
+    <p><strong>Largeur:</strong> {{ article.largeur || 'N/A' }}</p>
+    <p><strong>Hauteur:</strong> {{ article.hauteur || 'N/A' }}</p>
+    <p><strong>Catégorie:</strong> {{ article.categorie || 'N/A' }}</p>
+    <p><strong>Entrepôt:</strong> {{ article.entrepot?.nom || 'N/A' }}</p>
+    <p><strong>Fabricant:</strong> {{ article.fabricant?.name || 'N/A' }}</p>
+    <p><strong>Fournisseur:</strong> {{ article.fournisseur?.name || 'N/A' }}</p>
   </div>
   <div class="qr-code">
-    <img *ngIf="article.codeQr" [src]="'data:image/png;base64,' + article.codeQr" alt="QR Code" />
+    <img *ngIf="article.codeQr" [src]="'data:image/png;base64,' + article.codeQr" alt="Code QR" />
   </div>
-  <button (click)="downloadQr()" class="btn btn-download">Download QR Code</button>
-  <a [routerLink]="['/articles']" class="btn btn-back">Go Back</a>
-  <a [routerLink]="['/articles/edit', article.serialNumber]" class="btn btn-primary">Edit</a>
+  <button nz-button nzType="primary" (click)="downloadQr()">Télécharger le Code QR</button>
+  <button nz-button nzType="default" routerLink="/articles">Précédent</button>
+  <button nz-button nzType="default" class="btn-edit" routerLink="/articles/edit/{{ article.serialNumber }}">Modifier</button>
 </div>

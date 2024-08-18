@@ -7,7 +7,7 @@ import { Entrepot } from './entrepot';
   providedIn: 'root'
 })
 export class EntrepotService {
-  private apiUrl = 'http://localhost:8080/api/entrepots'; // Replace with your actual API URL
+  private apiUrl = 'http://localhost:8080/api/entrepots';
 
   private httpOptions = {
     headers: new HttpHeaders({
@@ -15,7 +15,7 @@ export class EntrepotService {
     })
   };
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getEntrepots(): Observable<Entrepot[]> {
     return this.http.get<Entrepot[]>(this.apiUrl);

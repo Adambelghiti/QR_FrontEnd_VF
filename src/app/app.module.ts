@@ -5,15 +5,15 @@ import { routes } from './app-routing.module';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzIconModule } from 'ng-zorro-antd/icon';
-import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
-    provideHttpClient(),   // Provide HttpClient globally
-    CommonModule,          // Provide CommonModule
-    NzButtonModule,        // Include other modules if needed
+    provideHttpClient(),
+    BrowserAnimationsModule, // Enable animations
+    NzButtonModule,
     NzTableModule,
     NzIconModule,
-  ]
+  ],
 };

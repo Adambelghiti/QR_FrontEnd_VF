@@ -5,8 +5,10 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  margin: 0;
 }
 
+/* Form Container */
 .form-container {
   background-color: #fff;
   padding: 20px 40px;
@@ -31,20 +33,22 @@ label {
   text-align: left;
 }
 
+/* Input Fields */
 input {
   width: 100%;
   padding: 10px;
   margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  border: 1px solid #d9d9d9; /* NgZorro input border color */
+  border-radius: 4px;
 }
 
+/* Submit Button */
 button {
-  background-color: #9C27B0;
+  background-color: #9c27b0; /* Custom purple color */
   color: white;
   padding: 10px 20px;
   border: none;
-  border-radius: 5px;
+  border-radius: 4px;
   cursor: pointer;
   width: 100%;
 }
@@ -53,6 +57,7 @@ button:hover {
   background-color: #8e24aa;
 }
 
+/* Back Button */
 .back-button {
   margin-top: 10px;
   display: inline-block;

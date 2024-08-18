@@ -4,13 +4,16 @@ import { ArticleService } from '../articles/article.service';
 import { Article } from '../articles/article';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { NzTableModule } from 'ng-zorro-antd/table';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzIconModule } from 'ng-zorro-antd/icon';
 
 @Component({
   selector: 'app-article',
   templateUrl: './article.component.html',
   styleUrls: ['./article.component.css'],
   standalone: true,
-  imports: [CommonModule, RouterModule, HttpClientModule],
+  imports: [CommonModule, RouterModule, HttpClientModule,NzTableModule,NzButtonModule,NzIconModule],
   providers: [ArticleService]
 })
 export class ArticleComponent implements OnInit {

@@ -1,4 +1,4 @@
-/* Reuse the same styles as articles.component.css */
+/* Container for the table and buttons */
 .container {
   max-width: 800px;
   margin: 0 auto;
@@ -6,6 +6,7 @@
   text-align: center;
 }
 
+/* Table styles */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -22,6 +23,7 @@ th {
   background-color: #f2f2f2;
 }
 
+/* Button styles */
 .btn {
   display: inline-block;
   padding: 10px 20px;
@@ -40,12 +42,15 @@ th {
 
 .btn-edit {
   background-color: #2196F3;
+  border-color: #2196F3;
 }
 
 .btn-create {
   background-color: #4CAF50;
+  border-color: #4CAF50;
 }
-/* src/app/fabricants/fabricants.component.css */
+
+/* Back button styles */
 .back-button {
   background-color: #777;
   color: white;
@@ -54,8 +59,15 @@ th {
   border-radius: 5px;
   text-decoration: none;
   cursor: pointer;
+  margin: 10px auto;
 }
 
 .back-button:hover {
   background-color: #555;
 }
+.btn-edit {
+  background-color: #4CAF50; /* Green */
+  border-color: #4CAF50;
+  color: white;
+}
+

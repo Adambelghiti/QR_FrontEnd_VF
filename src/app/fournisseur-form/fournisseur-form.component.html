@@ -1,32 +1,12 @@
-<!-- src/app/fournisseur-form/fournisseur-form.component.html -->
 <div class="form-container">
-  <h1>{{ fournisseurForm.get('id')?.value == null ? 'Create New Fournisseur' : 'Edit Fournisseur' }}</h1>
+  <h1>{{ fournisseurForm.get('id')?.value == null ? 'Créer un nouveau fournisseur' : 'Modifier le fournisseur' }}</h1>
   <form [formGroup]="fournisseurForm" (ngSubmit)="onSubmit()">
     <input type="hidden" formControlName="id" />
 
-    <label for="name">Name:</label>
-    <input type="text" id="name" formControlName="name" required/>
+    <label for="name">Nom:</label>
+    <input nz-input type="text" id="name" formControlName="name" required/>
 
-    <button type="submit">Save</button>
+    <button nz-button nzType="primary" type="submit">Enregistrer</button>
   </form>
-  <a routerLink="/fournisseurs" class="back-button">Précédent</a>
+  <button nz-button nzType="default" routerLink="/fournisseurs" class="back-button">Précédent</button>
 </div>
-
-<style>
-  .form-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  form {
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-  }
-  label, input, button {
-    margin-bottom: 10px;
-  }
-  .back-button {
-    margin-top: 10px;
-  }
-</style>

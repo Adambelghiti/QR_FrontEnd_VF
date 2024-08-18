@@ -1,10 +1,10 @@
 <div>
   <h1>Fabricants</h1>
-  <table>
+  <nz-table #basicTable [nzData]="fabricants" nzBordered>
     <thead>
       <tr>
         <th>ID</th>
-        <th>Name</th>
+        <th>Nom</th>
         <th>Actions</th>
       </tr>
     </thead>
@@ -13,12 +13,12 @@
         <td>{{ fabricant.id }}</td>
         <td>{{ fabricant.name }}</td>
         <td>
-          <button (click)="editFabricant(fabricant.id)" class="btn btn-edit">Edit</button>
-          <button (click)="deleteFabricant(fabricant.id)" class="btn btn-danger">Delete</button>
+          <button nz-button nzType="default" class="btn-edit" (click)="editFabricant(fabricant.id)">Modifier</button>
+          <button nz-button nzType="primary" nzDanger (click)="deleteFabricant(fabricant.id)">Supprimer</button>
         </td>
       </tr>
     </tbody>
-  </table>
-  <a routerLink="/fabricants/new" class="btn btn-create">Create New Fabricant</a>
-  <a routerLink="/welcome" class="btn back-button">Précédent</a>
+  </nz-table>
+  <button nz-button nzType="primary" routerLink="/fabricants/new">Créer un nouveau fabricant</button>
+  <button nz-button nzType="default" routerLink="/welcome">Précédent</button>
 </div>

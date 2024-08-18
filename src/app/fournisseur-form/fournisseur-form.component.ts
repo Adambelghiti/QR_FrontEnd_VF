@@ -1,17 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FournisseurService } from '../fournisseurs/fournisseur.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { FournisseurService } from '../fournisseurs/fournisseur.service';
+import { Fournisseur } from '../fournisseurs/fournisseur';
+import { NzTableModule } from 'ng-zorro-antd/table';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzIconModule } from 'ng-zorro-antd/icon';
 
 @Component({
   selector: 'app-fournisseur-form',
   templateUrl: './fournisseur-form.component.html',
   styleUrls: ['./fournisseur-form.component.css'],
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, HttpClientModule], // Include necessary modules
-  providers: [FournisseurService] // Provide the service if needed
+  imports: [HttpClientModule, RouterModule, CommonModule, ReactiveFormsModule,
+
+    NzTableModule, NzButtonModule, NzIconModule],
+  providers: [FournisseurService]
 })
 export class FournisseurFormComponent implements OnInit {
   fournisseurForm: FormGroup;
@@ -24,7 +32,7 @@ export class FournisseurFormComponent implements OnInit {
     private route: ActivatedRoute
   ) {
     this.fournisseurForm = this.fb.group({
-      id: [null],
+      id: [null],  // ID will be set when editing
       name: ['', Validators.required]
     });
   }
@@ -47,22 +55,38 @@ export class FournisseurFormComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const fournisseurData = this.fournisseurForm.value;
+    const fournisseurData: Fournisseur = this.fournisseurForm.value;
 
     if (this.fournisseurId) {
       this.fournisseurService.updateFournisseur(this.fournisseurId, fournisseurData).subscribe(
-        () => this.goToFournisseurList(),
-        (error) => console.error('Error updating Fournisseur:', error)
+        (response) => {
+          console.log('Fournisseur updated successfully:', response);
+          this.goToFournisseurList();
+        },
+        (error) => {
+          console.error('Error occurred while updating Fournisseur:', error);
+        }
       );
     } else {
       this.fournisseurService.createFournisseur(fournisseurData).subscribe(
-        () => this.goToFournisseurList(),
-        (error) => console.error('Error creating Fournisseur:', error)
+        (response) => {
+          console.log('Fournisseur created successfully:', response);
+          this.goToFournisseurList();
+        },
+        (error) => {
+          console.error('Error occurred while creating Fournisseur:', error);
+        }
       );
     }
   }
 
   goToFournisseurList(): void {
-    this.router.navigate(['/fournisseurs']);
+    this.router.navigate(['/fournisseurs']).then((success) => {
+      if (success) {
+        console.log('Navigation to Fournisseur list was successful');
+      } else {
+        console.error('Navigation to Fournisseur list failed');
+      }
+    });
   }
 }

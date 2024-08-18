@@ -7,6 +7,10 @@ import { ArticleService } from '../articles/article.service';
 import { EntrepotService } from '../entrepots/entrepot.service';
 import { FabricantService } from '../fabricants/fabricant.service';
 import { FournisseurService } from '../fournisseurs/fournisseur.service';
+import { NzTableModule } from 'ng-zorro-antd/table';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzSelectModule } from 'ng-zorro-antd/select';
 
 @Component({
   selector: 'app-article-form',
@@ -17,7 +21,11 @@ import { FournisseurService } from '../fournisseurs/fournisseur.service';
     CommonModule,
     ReactiveFormsModule,
     RouterModule,
-    HttpClientModule
+    HttpClientModule,
+    NzTableModule,
+    NzButtonModule,
+    NzIconModule,
+    NzSelectModule
   ],
   providers: [
     ArticleService,
@@ -52,6 +60,11 @@ export class ArticleFormComponent implements OnInit {
       entrepot: ['', Validators.required],
       fabricant: ['', Validators.required],
       fournisseur: ['', Validators.required],
+      includeNom: [false],
+      includeLongueur: [false],
+      includeLargeur: [false],
+      includeHauteur: [false],
+      includeCategorie: [false],
     });
   }
 
@@ -80,6 +93,7 @@ export class ArticleFormComponent implements OnInit {
       });
     }
   }
+
   loadEntrepots(): void {
     this.entrepotService.getEntrepots().subscribe((entrepots) => {
       this.entrepots = entrepots;
@@ -108,9 +122,13 @@ export class ArticleFormComponent implements OnInit {
         categorie: this.articleForm.value.categorie,
         entrepotNom: this.articleForm.value.entrepot.nom ,  // Extracting the name, defaulting to null
         fabricantName: this.articleForm.value.fabricant.name ,  // Extracting the name, defaulting to null
-        fournisseurName: this.articleForm.value.fournisseur.name   // Extracting the name, defaulting to null
+        fournisseurName: this.articleForm.value.fournisseur.name,
+        includeNom: this.articleForm.get('includeNom')?.value,
+        includeLongueur: this.articleForm.get('includeLongueur')?.value,
+        includeLargeur: this.articleForm.get('includeLargeur')?.value,
+        includeHauteur: this.articleForm.get('includeHauteur')?.value,
+        includeCategorie: this.articleForm.get('includeCategorie')?.value,
       };
-
       // Debugging the article data
       console.log('Article Data:', JSON.stringify(articleData, null, 2));
       console.log('Selected Entrepot:', this.articleForm.value.entrepot);
@@ -130,5 +148,4 @@ export class ArticleFormComponent implements OnInit {
       console.error('Form is invalid');
     }
   }
-
 }
