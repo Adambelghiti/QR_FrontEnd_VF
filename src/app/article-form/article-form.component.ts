@@ -65,6 +65,9 @@ export class ArticleFormComponent implements OnInit {
       includeLargeur: [false],
       includeHauteur: [false],
       includeCategorie: [false],
+      includeEntrepot: [false],     // New checkbox for Entrepot
+      includeFabricant: [false],    // New checkbox for Fabricant
+      includeFournisseur: [false],  // New checkbox for Fournisseur
     });
   }
 
@@ -128,6 +131,9 @@ export class ArticleFormComponent implements OnInit {
         includeLargeur: this.articleForm.get('includeLargeur')?.value,
         includeHauteur: this.articleForm.get('includeHauteur')?.value,
         includeCategorie: this.articleForm.get('includeCategorie')?.value,
+        includeEntrepot: this.articleForm.get('includeEntrepot')?.value,    // Include Entrepot in QR
+        includeFabricant: this.articleForm.get('includeFabricant')?.value,  // Include Fabricant in QR
+        includeFournisseur: this.articleForm.get('includeFournisseur')?.value, // Include Fournisseur in QR
       };
       // Debugging the article data
       console.log('Article Data:', JSON.stringify(articleData, null, 2));

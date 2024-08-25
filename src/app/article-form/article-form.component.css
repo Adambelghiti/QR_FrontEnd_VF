@@ -1,3 +1,4 @@
+/* General Styling */
 body {
   font-family: Arial, sans-serif;
 }
@@ -33,19 +34,74 @@ label {
   margin-right: 10px;
   border-radius: 4px;
   border: 1px solid #d9d9d9;
+  height: 40px;
+  width: 100%;
 }
 
 .form-group input[type="checkbox"] {
-  flex: 0;
+  margin-left: 10px;
 }
 
+/* Specific styling for checkboxes under entrepot, fabricant, and fournisseur dropdowns */
+.entrepot-group,
+.fabricant-group,
+.fournisseur-group {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  margin-bottom: 20px; /* Add space below each group */
+}
+
+.entrepot-group label,
+.fabricant-group label,
+.fournisseur-group label {
+  margin-bottom: 5px; /* Space between label and dropdown */
+}
+
+.entrepot-group .checkbox-group,
+.fabricant-group .checkbox-group,
+.fournisseur-group .checkbox-group {
+  margin-top: 10px; /* Space between dropdown and checkbox */
+  display: flex;
+  align-items: center;
+}
+
+.entrepot-group .checkbox-group input[type="checkbox"],
+.fabricant-group .checkbox-group input[type="checkbox"],
+.fournisseur-group .checkbox-group input[type="checkbox"] {
+  margin-right: 5px; /* Space between checkbox and label */
+}
+
+.entrepot-group .checkbox-group label,
+.fabricant-group .checkbox-group label,
+.fournisseur-group .checkbox-group label {
+  margin: 0; /* Align the label next to the checkbox */
+}
+
+/* Ensure checkboxes for nom, longueur, largeur, hauteur, and categorie are in the same line */
+.checkbox-group {
+  display: flex;
+  align-items: center;
+}
+
+/* Styling for nz-select to make it bigger */
+select {
+  width: 100%;
+  height: 40px; /* Increase height for better readability */
+  font-size: 16px; /* Larger font size for readability */
+  padding: 10px; /* Add padding inside the select */
+  border-radius: 4px;
+  border: 1px solid #d9d9d9;
+}
+
+/* Buttons */
 button {
-  background-color: #1890ff; /* NgZorro blue */
+  background-color: #1890ff;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   padding: 10px 20px;
+  margin: 10px 0; /* Add some space between buttons */
 }
 
 button:hover {
@@ -54,9 +110,9 @@ button:hover {
 
 /* Secondary Button */
 .btn-secondary {
-  padding: 5px 10px; /* Smaller padding */
-  font-size: 14px; /* Smaller font size */
-  background-color: #6c757d; /* Grey color */
+  padding: 5px 10px;
+  font-size: 14px;
+  background-color: #6c757d;
   color: white;
   border: none;
   border-radius: 4px;
@@ -66,5 +122,5 @@ button:hover {
 }
 
 .btn-secondary:hover {
-  background-color: #5a6268; /* Darker grey on hover */
+  background-color: #5a6268;
 }
