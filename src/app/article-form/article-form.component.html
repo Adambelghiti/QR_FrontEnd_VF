@@ -33,43 +33,41 @@
       <input type="checkbox" formControlName="includeCategorie" /> Inclure dans QR
     </div>
 
-<!-- Entrepot Field -->
-<div class="form-group entrepot-group">
-  <label for="entrepot">Entrepot:</label>
-  <select id="entrepot" formControlName="entrepot" required>
-    <option *ngFor="let entrepot of entrepots" [value]="entrepot">{{ entrepot.nom }}</option>
-  </select>
-  <div class="checkbox-group">
-    <input type="checkbox" formControlName="includeEntrepot" />
-    <label for="includeEntrepot">Inclure Entrepot</label>
-  </div>
-</div>
+    <!-- Entrepot Field -->
+    <div class="form-group entrepot-group">
+      <label for="entrepot">Entrepot:</label>
+      <select id="entrepot" formControlName="entrepot" required>
+        <option *ngFor="let entrepot of entrepots" [ngValue]="entrepot">{{ entrepot.nom }}</option>
+      </select>
+      <div class="checkbox-group">
+        <input type="checkbox" formControlName="includeEntrepot" />
+        <label for="includeEntrepot">Inclure Entrepot</label>
+      </div>
+    </div>
 
-<!-- Fabricant Field -->
-<div class="form-group fabricant-group">
-  <label for="fabricant">Fabricant:</label>
-  <select id="fabricant" formControlName="fabricant" required>
-    <option *ngFor="let fabricant of fabricants" [value]="fabricant">{{ fabricant.name }}</option>
-  </select>
-  <div class="checkbox-group">
-    <input type="checkbox" formControlName="includeFabricant" />
-    <label for="includeFabricant">Inclure Fabricant</label>
-  </div>
-</div>
+    <!-- Fabricant Field -->
+    <div class="form-group fabricant-group">
+      <label for="fabricant">Fabricant:</label>
+      <select id="fabricant" formControlName="fabricant" required>
+        <option *ngFor="let fabricant of fabricants" [ngValue]="fabricant">{{ fabricant.name }}</option>
+      </select>
+      <div class="checkbox-group">
+        <input type="checkbox" formControlName="includeFabricant" />
+        <label for="includeFabricant">Inclure Fabricant</label>
+      </div>
+    </div>
 
-<!-- Fournisseur Field -->
-<div class="form-group fournisseur-group">
-  <label for="fournisseur">Fournisseur:</label>
-  <select id="fournisseur" formControlName="fournisseur" required>
-    <option *ngFor="let fournisseur of fournisseurs" [value]="fournisseur">{{ fournisseur.name }}</option>
-  </select>
-  <div class="checkbox-group">
-    <input type="checkbox" formControlName="includeFournisseur" />
-    <label for="includeFournisseur">Inclure Fournisseur</label>
-  </div>
-</div>
-
-
+    <!-- Fournisseur Field -->
+    <div class="form-group fournisseur-group">
+      <label for="fournisseur">Fournisseur:</label>
+      <select id="fournisseur" formControlName="fournisseur" required>
+        <option *ngFor="let fournisseur of fournisseurs" [ngValue]="fournisseur">{{ fournisseur.name }}</option>
+      </select>
+      <div class="checkbox-group">
+        <input type="checkbox" formControlName="includeFournisseur" />
+        <label for="includeFournisseur">Inclure Fournisseur</label>
+      </div>
+    </div>
 
     <button nz-button nzType="primary" type="submit">{{ articleId ? 'Mettre à jour' : 'Enregistrer' }}</button>
     <button nz-button nzType="default" routerLink="/articles" class="back-button">Précédent</button>

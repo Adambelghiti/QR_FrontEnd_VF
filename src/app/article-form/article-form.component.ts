@@ -117,15 +117,18 @@ export class ArticleFormComponent implements OnInit {
 
   onSubmit(): void {
     if (this.articleForm.valid) {
+      const selectedEntrepot = this.articleForm.value.entrepot;
+      const selectedFabricant = this.articleForm.value.fabricant;
+      const selectedFournisseur = this.articleForm.value.fournisseur;
       const articleData = {
         nom: this.articleForm.value.nom,
         longueur: this.articleForm.value.longueur,
         largeur: this.articleForm.value.largeur,
         hauteur: this.articleForm.value.hauteur,
         categorie: this.articleForm.value.categorie,
-        entrepotNom: this.articleForm.value.entrepot.nom ,  // Extracting the name, defaulting to null
-        fabricantName: this.articleForm.value.fabricant.name ,  // Extracting the name, defaulting to null
-        fournisseurName: this.articleForm.value.fournisseur.name,
+        entrepotNom: selectedEntrepot.nom ,  // Extracting the name, defaulting to null
+        fabricantName: selectedFabricant.name ,  // Extracting the name, defaulting to null
+        fournisseurName: selectedFournisseur.name,
         includeNom: this.articleForm.get('includeNom')?.value,
         includeLongueur: this.articleForm.get('includeLongueur')?.value,
         includeLargeur: this.articleForm.get('includeLargeur')?.value,
@@ -136,10 +139,16 @@ export class ArticleFormComponent implements OnInit {
         includeFournisseur: this.articleForm.get('includeFournisseur')?.value, // Include Fournisseur in QR
       };
       // Debugging the article data
-      console.log('Article Data:', JSON.stringify(articleData, null, 2));
-      console.log('Selected Entrepot:', this.articleForm.value.entrepot);
-      console.log('Selected Fabricant:', this.articleForm.value.fabricant);
-      console.log('Selected Fournisseur:', this.articleForm.value.fournisseur);
+    // Log the form values
+    console.log('Form Values:', this.articleForm.value);
+
+    // Log the extracted values of entrepotNom, fabricantName, fournisseurName
+    console.log('Extracted Entrepot Name:', articleData.entrepotNom);
+    console.log('Extracted Fabricant Name:', articleData.fabricantName);
+    console.log('Extracted Fournisseur Name:', articleData.fournisseurName);
+
+    // Log the full articleData to be sent to the backend
+    console.log('Final Article Data:', articleData);
 
       if (this.articleId) {
         this.articleService.updateArticle(this.articleId, articleData).subscribe(() => {
